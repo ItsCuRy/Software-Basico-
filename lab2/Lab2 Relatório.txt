@@ -1,0 +1,7 @@
+Lab2 - Relatório 
+
+1.a : O tamanho em bytes é 4, como esperado de um int, e estao ordenados em notacao Little Endian , menos significativo para mais significativo , 10 27 00 00 , ou seja 0x2710. 
+
+2.a : O que ocorre é a conversao dos numeros da string para seu valor real em inteiro, o valor de (*s - '0') é o valor do digito armazenado em int (1 ,2 , 3, 4) e de a será ( 1, 12, 123, 1234) . 
+
+
