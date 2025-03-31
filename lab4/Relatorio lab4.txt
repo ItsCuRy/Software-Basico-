@@ -1,0 +1,46 @@
+Relatorio lab4: 
+
+2 : 
+Tanto l (-32765) quanto k (32771) têm a mesma representação em memória (0x8003), mas são interpretados de forma diferente devido ao tipo:
+
+l é um short com sinal: 0x8003 é interpretado como -32765 (em complemento de 2).
+
+k é um unsigned short: 0x8003 é interpretado como 32771.
+
+3: 
+
+O código faz com que seja passado um valor hexadecimal que então é salvo no valor de uma string e depois é passado para decimal em uma determinada base. Que depois é salvo no valor de inteiro que possui 32bits.
+
+Mas a real função do código está na função “xbyte” que salva separadamente os bits de um inteiro fazendo assim um desempacotamento dos bits, para que isso ocorra é necessario converter o valor passado para a função para um tipo char que possui 8bits e vai poder ser separado em 4 pacotes diferentes. Essa função tem como intuito converter o hexadecimal menos significativo para um valor decimal.
+
+4: 
+Programa 1 (int signed):
+x = -1, y = 2
+x é menor que y? sim
+- 0xffffffff em int signed = -1 (complemento de 2)
+- -1 < 2 → verdadeiro
+
+Programa 2 (unsigned int):
+x = -1, y = 2
+x é menor que y? nao
+- 0xffffffff em unsigned = 4294967295
+- 4294967295 < 2 → falso
+- Obs: com %u mostraria x=4294967295
+
+Programa 3 (int vs unsigned):
+x = -1, y = 2
+x é menor que y? nao
+- Na comparação mista, -1 é convertido para unsigned (4294967295)
+- 4294967295 < 2 → falso
+
+Resumo:
+1. signed: 0xffffffff = -1 → -1 < 2
+2. unsigned: 0xffffffff = 4294967295 → 4294967295 > 2  
+3. misto: signed é convertido para unsigned → comparação igual caso 2
+
+5: 
+ -1 == 1111 1111
+
+expande = 1111 1111 1111 1111 1111 1111 1111 1111
+
+para hexa = F F F F F F F F
